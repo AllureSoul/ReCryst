@@ -1,0 +1,15 @@
+{
+  "name": "ReCryst",
+  "version": "0.0.1",
+  "main": "ReCryst.js",
+  "scripts": {
+    "start": "node ReCryst.js",
+    "dev": "nodemon ReCryst.js"
+  },
+  "dependencies": {
+    "discord.js": "^11.4.2"
+  },
+  "devDependencies": {
+    "nodemon": "^1.18.9"
+  }
+}
