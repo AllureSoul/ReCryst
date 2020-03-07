@@ -12,7 +12,7 @@ function GetChannel(channelId) {
 		return client.channels.cache.get(channel);
 	}
 
-			
+		
 //Bot Starts Here
 
 client.on('ready', () => {
