@@ -2,7 +2,7 @@ const Discord = require('discord.js');
 const { Client, MessageEmbed } = require('discord.js');
 const client = new Discord.Client();
 const prefix = "."
-client.login('Njg0NzAyMTk4MzI3OTM0OTgz.Xl-AJA.MVHxgZiq2_kSiHVSV-9yRLein-4');
+client.login(process.env.BOT_TOKEN);
 
 //Defining Fucntions
 function GetChannel(channelId) {
