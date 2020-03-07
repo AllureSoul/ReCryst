@@ -17,8 +17,6 @@ function GetChannel(channelId) {
 
 client.on('ready', () => {
 	console.log(`ReCryst ready!`);
-	client.guilds.cache.get('609376315648245810').channels.cache.get('685126107141242960').send('I Am Online!')
-	client.guilds.cache.get('630697452189515820').channels.cache.get('685099316099940394').send('spam')
 	client.user.setActivity("Ceacillia's Play", {type: 'WATCHING' });
 });
 client.on('message', message => {
