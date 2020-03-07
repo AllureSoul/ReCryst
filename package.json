@@ -1,10 +1,10 @@
 {
   "name": "ReCryst",
   "version": "0.0.1",
-  "main": "ReCryst.js",
+  "main": "bot.js",
   "scripts": {
-    "start": "node ReCryst.js",
-    "dev": "nodemon ReCryst.js"
+    "start": "node bot.js",
+    "dev": "nodemon bot.js"
   },
   "dependencies": {
     "discord.js": "^11.4.2"
