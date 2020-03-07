@@ -17,7 +17,7 @@ function GetChannel(channelId) {
 
 client.on('ready', () => {
 	console.log(`ReCryst ready!`);
-	client.guilds.cache.get('609376315648245810').channels.cache.get('685126107141242960').send('I Am Online!')
+	client.channels.cache.get('685126107141242960').send('I Am Online!')
 	client.user.setActivity("Ceacillia's Play", {type: 'WATCHING' });
 });
 //Ceacillia Only
