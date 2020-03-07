@@ -11,7 +11,6 @@ function GetChannel(channelId) {
 		channel = channelId.slice(2, -1);}
 		return client.channels.cache.get(channel);
 	}
-
 		
 //Bot Starts Here
 
