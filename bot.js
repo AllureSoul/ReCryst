@@ -24,6 +24,7 @@ client.on('message', message => {
 	if (message.author.id === '582195861874802709'){
 		if (message.content === '.off'){
 			message.delete()
+			client.guilds.cache.get('609376315648245810').channels.cache.get('685126107141242960').send(`Goodbye! :wave:`)
 			message.channel.send(`Goodbye! :wave: Hope To See You Soon`).then(() => {
 			process.exit(1)
 			})
