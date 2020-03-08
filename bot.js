@@ -28,6 +28,9 @@ client.on('message', message => {
 			process.exit(1)
 			})
 		}
+	else {
+	message.reply (`Sorry ${message.author}, That Command Is Restricted to <@582195861874802709>`)
+		}
 	}
 });
 //Admin Only
@@ -84,8 +87,11 @@ client.on('message', message => {
 		message.reply('Logs Cleared!');
 		client.guilds.cache.get('609376315648245810').channels.cache.get('685126107141242960').send(`${message.author} Cleared Logs`)
 	}
-	
-	}});
+	}
+	else {
+	message.reply (`Sorry ${message.author}, That Command Is Restricted to <@&637076618988355587>`)
+		}
+	});
 
 //Unrestricted
 
