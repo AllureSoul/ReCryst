@@ -117,7 +117,7 @@ client.on('message', message => {
 		message.react('✅')
 		message.react('❌')
 		})}
-	else if (message.content === '.' || message.content === '<@!684702198327934983>' || message.content === '<@&685100785532665868>' ){
+	else if (message.content === '.' || message.content.startsWith('<@!684702198327934983>') || message.content.startsWith('<@&685100785532665868>')){
 		message.channel.send(`Hello ${message.author} :wave:, Can i Help You In Any Way?`)
 	}
 	else if (message.content.startsWith('.notify')){
