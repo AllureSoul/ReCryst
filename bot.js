@@ -128,7 +128,7 @@ client.on('message', message => {
 		message.channel.send(`Hey, ${user1}! ${message.author} wants to play`)
 			}
 		if (user1.length === 0){
-			message.channgel.send(`Hey, ${message.author} wants to play`)
+			message.channel.send(`Hey, ${message.author} wants to play`)
 			}
 		}
 	});
