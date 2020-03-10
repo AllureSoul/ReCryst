@@ -124,6 +124,11 @@ client.on('message', message => {
 	else if (message.content.startsWith('.notify')){
 		message.delete()
 		const user1 = message.mentions.users.first(7)
+		if (user1.length > 0){
 		message.channel.send(`Hey, ${user1}! ${message.author} wants to play`)
+			}
+		if (user1.length === 0){
+			message.channgel.send(`Hey, ${message.author} wants to play`)
+			}
 		}
 	});
