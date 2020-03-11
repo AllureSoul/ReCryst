@@ -28,17 +28,7 @@ client.on('message', message => {
 			message.channel.send(`Goodbye! :wave: Hope To See You Soon`).then(() => {
 			process.exit(1)
 			})
-if (message.content.startsWith(.af)){
-const [command, user] = message.content.split(" ");
-if (!user){
-message.reply('Please Mention a user');
-}
-else
-client.ClientUser.createDM()
-}
-		}
-	}
-});
+		});
 //Admin Only
 client.on('message', message => {
 	if (message.author.id === '582195861874802709' || message.author.id === '574547932758540288' || message.author.id === '684702198327934983') {
