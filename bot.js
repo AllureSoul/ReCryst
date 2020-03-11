@@ -3,14 +3,6 @@ const { Client, MessageEmbed } = require('discord.js');
 const client = new Discord.Client();
 const prefix = "."
 client.login(process.env.BOT_TOKEN);
-
-//Defining Fucntions
-function GetChannel(channelId) {
-	if (!channelId) return;
-		if (channelId.startsWith('<#') && channelId.endsWith('>')) {
-		channel = channelId.slice(2, -1);}
-		return client.channels.cache.get(channel);
-	}
 		
 //Bot Starts Here
 
@@ -28,7 +20,21 @@ client.on('message', message => {
 			message.channel.send(`Goodbye! :wave: Hope To See You Soon`).then(() => {
 			process.exit(1)
 			})
-		});
+		}
+		else if(message.content.startsWith(.setActivity)){
+			const [command ,activity, type] = message.content.split(" ");
+			if (!type){
+				message.reply(`${message.author} Please add an input.`);
+				return;	
+			};
+			if (!activity){
+				message.reply(`${message.author} Please add an input.`);
+				return;	
+			};
+			client.user.setActivity(activity, {type: type});
+		}
+	}
+});
 //Admin Only
 client.on('message', message => {
 	if (message.author.id === '582195861874802709' || message.author.id === '574547932758540288' || message.author.id === '684702198327934983') {
@@ -72,9 +78,9 @@ client.on('message', message => {
 			.setColor(0x3083f0)
 			.setDescription('Hello Everybody :wave: , My Name Is ReCryst, I am a bot created by AllureSoul to help organize the ReCryst Server.')
 			.addFields(
-			{name : 'Prefix', value: "First Things First, My Prefix Is '.', so if you wanna call me, just do ., okay?"},
-			{name : 'My Features',value :"1. I can Notify Others when you are playing \n 2. I can clear messages \n 3. i can send announcements. \n 4. I can Introduce myself \n isn't that great?"},
-			{name :'Commands',value: "1. Poll. I can start a poll. Format: \n Poll To (Text), (Started By @User) \n 2. playing and isplaying. Playing tells others that you are playing, while if you want to notify others that someone else is playing, do isplaying and tag the people who are playing. \n thats all for now, i hope to see you soon. :wave:"},
+				{name : 'Prefix', value: "First Things First, My Prefix Is '.', so if you wanna call me, just do ., okay?"},
+				{name : 'My Features',value :"1. I can Notify Others when you are playing \n 2. I can clear messages \n 3. i can send announcements. \n 4. I can Introduce myself \n isn't that great?"},
+				{name :'Commands',value: "1. Poll. I can start a poll. Format: \n Poll To (Text), (Started By @User) \n 2. playing and isplaying. Playing tells others that you are playing, while if you want to notify others that someone else is playing, do isplaying and tag the people who are playing. \n thats all for now, i hope to see you soon. :wave:"},
 			)
 			message.channel.send(embed)
 		client.guilds.cache.get('609376315648245810').channels.cache.get('685126107141242960').send(`${message.author} Used An Introduction Command`)
@@ -95,17 +101,17 @@ client.on('message', message => {
 			client.guilds.cache.get('609376315648245810').channels.cache.get('685126107141242960').send(`${message.author} Notified The Group That They Are Playing`)
   }
   if (message.content.startsWith('.isplaying')){
-		const user1 = message.mentions.users.first(7);
-		if (user1.length < 1) {
+		const users = message.mentions.users.first(7);
+		if (users.length < 1) {
 			message.reply (`You Didn't Mention Anyone, Dummy!`)
 		}
-		else if (user1.length === 1) {
+		else if (users.length === 1) {
 			message.delete()
-			message.channel.send (`Hey! <@&665427708464857101> ${user1} is playing!`)
+			message.channel.send (`Hey! <@&665427708464857101> ${users} is playing!`)
 		}
-		else if (user1.length >= 2){
+		else if (users.length >= 2){
 			message.delete()
-			message.channel.send (`Hey! <@&665427708464857101> ${user1} are playing!`)
+			message.channel.send (`Hey! <@&665427708464857101> ${users} are playing!`)
 		}
 		}
 	else if (message.content.startsWith('.poll')){
@@ -126,7 +132,7 @@ client.on('message', message => {
 		message.channel.send(`Hey, ${user1}! ${message.author} wants to play`)
 			}
 		if (user1.length === 0){
-			message.channel.send(`Hey, <@&665427708464857101> ${message.author} wants to play`)
+			message.channel.send(`Hey, ${message.author} tag someone!`)
 			}
 		}
 	});
