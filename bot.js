@@ -28,6 +28,14 @@ client.on('message', message => {
 			message.channel.send(`Goodbye! :wave: Hope To See You Soon`).then(() => {
 			process.exit(1)
 			})
+if (message.content.startsWith(.af)){
+const [command, user] = message.content.split(" ");
+if (!user){
+message.reply('Please Mention a user');
+}
+else
+client.ClientUser.createDM()
+}
 		}
 	}
 });
@@ -123,12 +131,12 @@ client.on('message', message => {
 	}
 	else if (message.content.startsWith('.notify')){
 		message.delete()
-		const user1 = message.mentions.users.first(7)
+		const user1 = message.mentions.users.first(100)
 		if (user1.length > 0){
 		message.channel.send(`Hey, ${user1}! ${message.author} wants to play`)
 			}
 		if (user1.length === 0){
-			message.channel.send(`Hey, ${message.author} wants to play`)
+			message.channel.send(`Hey, <@&665427708464857101> ${message.author} wants to play`)
 			}
 		}
 	});
