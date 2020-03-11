@@ -21,7 +21,7 @@ client.on('message', message => {
 			process.exit(1)
 			})
 		}
-		else if(message.content.startsWith(.setActivity)){
+		else if(message.content.startsWith('.setActivity')){
 			const [command ,activity, type] = message.content.split(" ");
 			if (!type){
 				message.reply(`${message.author} Please add an input.`);
