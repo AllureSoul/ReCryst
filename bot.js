@@ -61,7 +61,7 @@ console.log(`${message.author} has edited the message with id: ${messageId}`)
 		if (!channelId) return;
 		if (channelId.startsWith('<#') && channelId.endsWith('>')) {
 			channel = channelId.slice(2, -1);}
-		console.log(`${message.author} has posted ${args.join(" ")} on the channel with the ID ${channelId});
+		console.log(`${message.author} has posted ${args.join(" ")} on the channel with the ID ${channelId}`);
 switch(command){
 				case command:
 				client.guilds.cache.get('609376315648245810').channels.cache.get(channel).send(args.join(" "));
