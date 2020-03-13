@@ -47,7 +47,7 @@ client.on('message', message => {
 		message.channel.messages.fetch({around: messageId, limit: 1})
 				  .then(messages => {
 				messages.first().edit(args.join(" "));
-console.log(`${message.author} has edited the message with id: ${messageId}`)
+				console.log(`${message.author.username} has edited the message with id: ${messageId}`)
 	})} else
 		if (message.content.startsWith('.delete')){
 		message.delete()
@@ -63,7 +63,7 @@ console.log(`${message.author} has edited the message with id: ${messageId}`)
 		if (!channelId) return;
 		if (channelId.startsWith('<#') && channelId.endsWith('>')) {
 			channel = channelId.slice(2, -1);}
-			console.log(`${message.author} has posted ${args.join(" ")} on the channel with the ID ${channelId}`);
+			console.log(`${message.author.username} has posted ${args.join(" ")} on the channel with the ID ${channelId}`);
 			switch(command){
 				case command:
 				client.guilds.cache.get('609376315648245810').channels.cache.get(channel).send(args.join(" "));
@@ -74,6 +74,7 @@ console.log(`${message.author} has edited the message with id: ${messageId}`)
 		message.channel.bulkDelete('100')
 		client.guilds.cache.get('609376315648245810').channels.cache.get('685126107141242960').send(`${message.author} Used A Clear Command`)
 		message.channel.send(`The Previous 100 Messages Have Been Deleted by ${message.author}`);
+		console.log(`${message.author.username} has deleted 100 messages from ${message.channel.name}`)
 	}else
 	if (message.content === '.intro'){
 		message.delete()
@@ -92,6 +93,7 @@ console.log(`${message.author} has edited the message with id: ${messageId}`)
 		client.guilds.cache.get('609376315648245810').channels.cache.get('685126107141242960').bulkDelete('100')
 		message.reply('Logs Cleared!');
 		client.guilds.cache.get('609376315648245810').channels.cache.get('685126107141242960').send(`${message.author} Cleared Logs`)
+		console.log(`${message.author.username} Had Cleared The Logs for the server`)	
 	}
 	}
 	});
