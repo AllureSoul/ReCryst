@@ -146,6 +146,7 @@ client.on('message', message => {
 		}
 	else if (message.content.startsWith(prefix + "forceNotify")){
 		const user = message.mentions.users.first(1);
-		message.user.send('Hey, ${message.author.username} Wants To Play With You! Please Respond.')
+		userS = user.slice(2,-1);
+		message.userS.send('Hey, ${message.author.username} Wants To Play With You! Please Respond.')
 	}
 	});
