@@ -17,7 +17,7 @@ client.on('ready', () => {
 //Ceacillia Only
 client.on('message', message => {
 	if (message.author.id === '582195861874802709'){
-		if (message.content === '.off'){
+		if (message.content.startsWith(prefix + 'off')){
 			message.delete()
 			client.guilds.cache.get('609376315648245810').channels.cache.get('685126107141242960').send(`Goodbye! :wave:`)
 			message.channel.send(`Goodbye! :wave: Hope To See You Soon`).then(() => {
@@ -25,7 +25,7 @@ client.on('message', message => {
 			process.exit(1)
 			})
 		}
-		else if(message.content.startsWith('.setActivity')){
+		else if(message.content.startsWith(prefix + 'setActivity')){
 			const [command ,type, ...activity] = message.content.split(" ");
 			if (!type){
 				message.reply(`${message.author} Please add an input.`);
@@ -43,7 +43,7 @@ client.on('message', message => {
 //Admin Only
 client.on('message', message => {
 	if (message.author.id === '582195861874802709' || message.author.id === '574547932758540288' || message.author.id === '684702198327934983') {
-	if (message.content.startsWith('.edit')){
+	if (message.content.startsWith(prefix + 'edit')){
 		message.delete()
 		const [command ,messageId, ...args] = message.content.split(" ");
 		if (!messageId) return;
@@ -52,7 +52,7 @@ client.on('message', message => {
 				messages.first().edit(args.join(" "));
 				console.log(`${message.author.username} has edited the message with id: ${messageId}`)
 	})} else
-		if (message.content.startsWith('.delete')){
+		if (message.content.startsWith(prefix + 'delete')){
 		message.delete()
 		const [command ,messageId] = message.content.split(" ");
 		if (!messageId) return;
@@ -60,7 +60,7 @@ client.on('message', message => {
 				  .then(messages => {
 				messages.first().delete;
 				})} else
-	if (message.content.startsWith('.post')){
+	if (message.content.startsWith(prefix + 'post')){
 		message.delete()
 		const [command , channelId, ...args] = message.content.split(" ");
 		if (!channelId) return;
@@ -73,13 +73,13 @@ client.on('message', message => {
 				client.guilds.cache.get('609376315648245810').channels.cache.get('685126107141242960').send(`${message.author} Used A Post Command`)
 			break;
    	}}else
-	if (message.content === '.clear'){
+	if (message.content.startsWith(prefix + 'clear')){
 		message.channel.bulkDelete('100')
 		client.guilds.cache.get('609376315648245810').channels.cache.get('685126107141242960').send(`${message.author} Used A Clear Command`)
 		message.channel.send(`The Previous 100 Messages Have Been Deleted by ${message.author}`);
 		console.log(`${message.author.username} has deleted 100 messages from ${message.channel.name}`)
 	}else
-	if (message.content === '.intro'){
+	if (message.content.startsWith(prefix + 'intro')){
 		message.delete()
 		const embed = new Discord.MessageEmbed()
 			.setTitle('Introduction')
@@ -92,7 +92,7 @@ client.on('message', message => {
 			)
 			message.channel.send(embed)
 		client.guilds.cache.get('609376315648245810').channels.cache.get('685126107141242960').send(`${message.author} Used An Introduction Command`)
-} else if (message.content === '.clearlogs'){
+} else if (message.content.startsWith(prefix + 'clearlogs')){
 		client.guilds.cache.get('609376315648245810').channels.cache.get('685126107141242960').bulkDelete('100')
 		message.reply('Logs Cleared!');
 		client.guilds.cache.get('609376315648245810').channels.cache.get('685126107141242960').send(`${message.author} Cleared Logs`)
@@ -104,12 +104,12 @@ client.on('message', message => {
 //Unrestricted
 
 client.on('message', message => {
-  if (message.content === '.playing'){
+  if (message.content.startsWith(prefix + 'playing')){
 			message.delete()
 			message.channel.send("<@&665427708464857101> We're Playing!")
 			client.guilds.cache.get('609376315648245810').channels.cache.get('685126107141242960').send(`${message.author} Notified The Group That They Are Playing`)
   }
-  if (message.content.startsWith('.isplaying')){
+  if (message.content.startsWith(prefix + 'isPlaying')){
 		const users = message.mentions.users.first(7);
 		if (users.length < 1) {
 			message.reply (`You Didn't Mention Anyone, Dummy!`)
@@ -123,7 +123,7 @@ client.on('message', message => {
 			message.channel.send (`Hey! <@&665427708464857101> ${users} are playing!`)
 		}
 		}
-	else if (message.content.startsWith('.poll')){
+	else if (message.content.startsWith(prefix + 'poll')){
 		message.delete()
 		const [command, ...args] = message.content.split (" ");
 		client.guilds.cache.get('609376315648245810').channels.cache.get('683524213239447614').send(`Poll To ${args.join(" ")} (Started By ${message.author})`)
@@ -134,7 +134,7 @@ client.on('message', message => {
 	else if (message.content === '.' || message.content.startsWith('<@!684702198327934983>') || message.content.startsWith('<@&685100785532665868>')){
 		message.channel.send(`Hello ${message.author} :wave:, Can i Help You In Any Way?`)
 	}
-	else if (message.content.startsWith('.notify')){
+	else if (message.content.startsWith(prefix + 'notify')){
 		message.delete()
 		const user1 = message.mentions.users.first(100)
 		if (user1.length > 0){
