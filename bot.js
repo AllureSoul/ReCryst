@@ -11,7 +11,7 @@ client.login(process.env.BOT_TOKEN);
 
 client.on('ready', () => {
 	console.log(`ReCryst ready!, currently running ${info.version} on ${info.phase}`);
-	client.guilds.cache.get('609376315648245810').channels.cache.get('685126107141242960').send('I Am Online!')
+	client.guilds.cache.get('609376315648245810').channels.cache.get('685126107141242960').send(`I Am Online!, Running ${info.version} on ${info.phase}`)
 	client.user.setActivity("Ceacillia's Play", {type: 'WATCHING' });
 });
 //Ceacillia Only
