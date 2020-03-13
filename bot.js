@@ -1,8 +1,8 @@
 const Discord = require('discord.js');
 const { Client, MessageEmbed } = require('discord.js');
 const client = new Discord.Client();
-const prefix = "."
-var info = require('./files/info.json')
+
+var info = require('./Files/info.json')
 client.login(process.env.BOT_TOKEN);
 		
 //Bot Starts Here
