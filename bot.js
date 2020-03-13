@@ -7,7 +7,7 @@ client.login(process.env.BOT_TOKEN);
 //Bot Starts Here
 
 client.on('ready', () => {
-	console.log(`ReCryst ready!`);
+	console.log(`ReCryst ready!, currently running ${info.version} on ${info.phase}`);
 	client.guilds.cache.get('609376315648245810').channels.cache.get('685126107141242960').send('I Am Online!')
 	client.user.setActivity("Ceacillia's Play", {type: 'WATCHING' });
 });
