@@ -22,7 +22,7 @@ client.on('message', message => {
 			})
 		}
 		else if(message.content.startsWith('.setActivity')){
-			const [command ,type, activity] = message.content.split(" ");
+			const [command ,type, ...activity] = message.content.split(" ");
 			if (!type){
 				message.reply(`${message.author} Please add an input.`);
 				return;	
@@ -31,8 +31,8 @@ client.on('message', message => {
 				message.reply(`${message.author} Please add an input.`);
 				return;	
 			};
-			client.user.setActivity(activity, {type: type});
-console.log(`${message.author.username}, Activity Changed!`)
+			client.user.setActivity(activity.join(" "), {type: type});
+			console.log(`${message.author.username}, Activity Changed to ${activity.join(" ")}`)
 		}
 	}
 });
