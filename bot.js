@@ -22,7 +22,7 @@ client.on('message', message => {
 			})
 		}
 		else if(message.content.startsWith('.setActivity')){
-			const [command ,activity, type] = message.content.split(" ");
+			const [command ,type, activity] = message.content.split(" ");
 			if (!type){
 				message.reply(`${message.author} Please add an input.`);
 				return;	
@@ -45,6 +45,7 @@ client.on('message', message => {
 		message.channel.messages.fetch({around: messageId, limit: 1})
 				  .then(messages => {
 				messages.first().edit(args.join(" "));
+console.log(`${message.author} has edited the message with id: ${messageId}`)
 	})} else
 		if (message.content.startsWith('.delete')){
 		message.delete()
@@ -60,7 +61,8 @@ client.on('message', message => {
 		if (!channelId) return;
 		if (channelId.startsWith('<#') && channelId.endsWith('>')) {
 			channel = channelId.slice(2, -1);}
-		switch(command){
+		console.log(`${message.author} has posted ${args.join(" ")} on the channel with the ID ${channelId});
+switch(command){
 				case command:
 				client.guilds.cache.get('609376315648245810').channels.cache.get(channel).send(args.join(" "));
 				client.guilds.cache.get('609376315648245810').channels.cache.get('685126107141242960').send(`${message.author} Used A Post Command`)
