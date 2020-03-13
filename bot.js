@@ -145,10 +145,7 @@ client.on('message', message => {
 			}
 		}
 	else if (message.content.startsWith(prefix + "forceNotify")){
-		const mentioned = message.mentions.users.first(1);
-		spammable = mentioned.slice(2, -1)
-		const user = client.users.cache.get(spammable);
-		user.send('TestMessage');
+		message.author.send(`Hello! This Is A Test message!`);
 		
 	}
 	});
