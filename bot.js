@@ -18,6 +18,7 @@ client.on('message', message => {
 			message.delete()
 			client.guilds.cache.get('609376315648245810').channels.cache.get('685126107141242960').send(`Goodbye! :wave:`)
 			message.channel.send(`Goodbye! :wave: Hope To See You Soon`).then(() => {
+			console.log(`Process Ended.`)
 			process.exit(1)
 			})
 		}
@@ -62,8 +63,8 @@ console.log(`${message.author} has edited the message with id: ${messageId}`)
 		if (!channelId) return;
 		if (channelId.startsWith('<#') && channelId.endsWith('>')) {
 			channel = channelId.slice(2, -1);}
-		console.log(`${message.author} has posted ${args.join(" ")} on the channel with the ID ${channelId}`);
-switch(command){
+			console.log(`${message.author} has posted ${args.join(" ")} on the channel with the ID ${channelId}`);
+			switch(command){
 				case command:
 				client.guilds.cache.get('609376315648245810').channels.cache.get(channel).send(args.join(" "));
 				client.guilds.cache.get('609376315648245810').channels.cache.get('685126107141242960').send(`${message.author} Used A Post Command`)
