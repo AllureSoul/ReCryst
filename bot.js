@@ -145,7 +145,8 @@ client.on('message', message => {
 			}
 		}
 	else if (message.content.startsWith(prefix + "forceNotify")){
-		message.author.send(`Hello! This Is A Test message!`);
+		const user1 = message.mentions.users.first(1)
+		user1.send(`Hewwo, Thwis Is A Twest Messagwe`);
 		
 	}
 	});
