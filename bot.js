@@ -2,7 +2,9 @@ const Discord = require('discord.js');
 const { Client, MessageEmbed } = require('discord.js');
 const client = new Discord.Client();
 
-var info = require('./Files/info.json')
+//.JSON file usage
+var info = require('./Files/info.json');
+const prefix = (info.prefix);
 client.login(process.env.BOT_TOKEN);
 		
 //Bot Starts Here
@@ -142,4 +144,8 @@ client.on('message', message => {
 			message.channel.send(`Hey, ${message.author} tag someone!`)
 			}
 		}
+	else if (message.content.startsWith(prefix + "forceNotify")){
+		const user = message.mentions.users.first(1);
+		message.user.send('Hey, ${message.author.username} Wants To Play With You! Please Respond.')
+	}
 	});
