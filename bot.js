@@ -147,7 +147,7 @@ client.on('message', message => {
 	else if (message.content.startsWith(prefix + "forceNotify")){
 		const user = message.mentions.users.first(1);
 		userS = user.slice(2,-1);
-		userS.createDM();
+		userS.send(`TestMSG`);
 		
 	}
 	});
