@@ -32,6 +32,7 @@ client.on('message', message => {
 				return;	
 			};
 			client.user.setActivity(activity, {type: type});
+console.log(`${message.author.username}, Activity Changed!`)
 		}
 	}
 });
