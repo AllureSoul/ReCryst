@@ -145,7 +145,9 @@ client.on('message', message => {
 			}
 		}
 	else if (message.content.startsWith(prefix + "forceNotify")){
-		const user = client.users.cache.get('582195861874802709');
+		const user1f = message.mentions.users.first(1);
+		const user2f = user1f.slice(2,-1);
+		const user = client.users.cache.get(user2f);
 		user.send('<content>');
 		
 	}
