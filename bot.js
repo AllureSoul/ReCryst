@@ -138,7 +138,7 @@ client.on('message', message => {
 		message.delete()
 		const user1 = message.mentions.users.first(100)
 		const userId = user1.slice(2,-1);
-		if (userId === message.author.id){
+		if (user1[1] === message.author){
 			message.reply(`Don't Tag Yourself, Dummy!`);
 			return;
 		}
