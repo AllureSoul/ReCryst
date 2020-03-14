@@ -137,7 +137,8 @@ client.on('message', message => {
 	else if (message.content.startsWith(prefix + 'notify')){
 		message.delete()
 		const user1 = message.mentions.users.first(100)
-		if (user1 === message.author){
+		const userId = user1.slice(2,-1);
+		if (userId === message.author.id){
 			message.reply(`Don't Tag Yourself, Dummy!`);
 			return;
 		}
@@ -151,7 +152,7 @@ client.on('message', message => {
 	else if (message.content.startsWith(prefix + "forceNotify")){
 		const user1 = message.mentions.users.first(1)
 		user2 = user1.slice(2,-1);
-		const user = client.users.cache.get(user2); 
+		const user = client.users.cache.get(user1); 
 		user.send(`Hewwo, Thwis Is A Twest Messagwe`);
 		
 	}
