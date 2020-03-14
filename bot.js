@@ -137,13 +137,6 @@ client.on('message', message => {
 	else if (message.content.startsWith(prefix + 'notify')){
 		message.delete()
 		const user1 = message.mentions.users.first(100)
-		if(user1[1].startsWith('<@') && user1[1].endsWith('>')){
-		const userId = user1[1].slice(2,-1);}
-		else {const userId = user1[1]}
-		if (userId === message.author.id){
-			message.reply(`Don't Tag Yourself, Dummy!`);
-			return;
-		}
 		if (user1.length > 0){
 		message.channel.send(`Hey, ${user1}! ${message.author} wants to play`)
 			}
