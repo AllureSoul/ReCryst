@@ -153,7 +153,7 @@ client.on('message', message => {
 		const user1 = message.mentions.users.first(1)
 		user2 = user1.slice(2,-1);
 		const user = client.users.cache.get(user1); 
-		user.send(`Hewwo, Thwis Is A Twest Messagwe`);
+		message.user.send(`Hewwo, Thwis Is A Twest Messagwe`);
 		
 	}
 	});
