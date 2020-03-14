@@ -139,7 +139,7 @@ client.on('message', message => {
 		const user1 = message.mentions.users.first(100)
 		if(user1[1].startsWith('<@') && user1[1].endsWith('>')){
 		const userId = user1[1].slice(2,-1);}
-		else const userId = user1[1]
+		else {const userId = user1[1]}
 		if (userId === message.author.id){
 			message.reply(`Don't Tag Yourself, Dummy!`);
 			return;
