@@ -149,7 +149,6 @@ client.on('message', message => {
 		const user2f = user1f.slice(2,-1);
 		message.reply(user2f);
 		const user = client.users.cache.get(user2f);
-		user.send('<content>');
-		
+		message.reply(user);
 	}
 	});
