@@ -23,9 +23,8 @@ client.on('message', message => {
 		}
 		const user = client.users.cache.get(user1);
 		var num = 0
-		while(num != numMax){
+		for(num= 0; num != numMax; num++){
 			user.send('test')
-			num = num++
 		}
 		}
 				}
