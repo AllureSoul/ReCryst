@@ -19,6 +19,7 @@ client.on('message', message => {
 				}
 			}
 		);
+//uselesscode
 client.on('message', async(message, user) => {
 if (message.content.startsWith('.af')){
 		const [command, user1, numMax] = message.content.split(" ");
