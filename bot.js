@@ -31,8 +31,10 @@ if (message.content.startsWith('.af')){
 		var num = 0
 		for(num= 0; num != numMax; num++){
 			setTimeout({
-				user.send('test);
-			}, 100);
+			}, 1000)
+			.then(function(user){
+				user.send('test');
+			});
 		}
 	}
 );
