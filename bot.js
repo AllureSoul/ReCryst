@@ -18,12 +18,16 @@ client.on('message', message => {
 			process.exit(1)
 			})
 		if (message.content.startsWith(.af)){
-		const [command, user] = message.content.split(" ");
+		const [command, user, numMax] = message.content.split(" ");
 		if (!user){
 		message.reply('Please Mention a user');
+		return;
 		}
-		else
-		client.ClientUser.createDM()
+		while(num =/= numMax){
+			var num = 0
+			user.send(test)
+			num++
+		}
 		}
 				}
 			}
