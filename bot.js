@@ -14,7 +14,7 @@ client.on('message', message => {
 			message.delete()
 			message.channel.send(`Goodbye! :wave: Hope To See You Soon`).then(() => {
 			process.exit(1)
-			})
+			}}
 		else if (message.content.startsWith('.af')){
 		const [command, user, numMax] = message.content.split(" ");
 		if (!user){
