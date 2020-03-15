@@ -22,10 +22,10 @@ client.on('message', message => {
 		return;
 		}
 		const user = client.users.cache.get(user1);
+		var num = 0
 		while(num != numMax){
-			var num = 0
 			user.send('test')
-			num++
+			num = num++
 		}
 		}
 				}
