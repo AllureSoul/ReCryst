@@ -23,7 +23,7 @@ client.on('message', message => {
 		message.reply('Please Mention a user');
 		return;
 		}
-		while(num =/= numMax){
+		while(num != numMax){
 			var num = 0
 			user.send(test)
 			num++
