@@ -37,4 +37,4 @@ if (message.content.startsWith('.af')){
 			});
 		}
 	}
-);
+});
