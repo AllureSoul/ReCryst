@@ -17,7 +17,7 @@ client.on('message', message => {
 			})}
 		else if (message.content.startsWith('.af')){
 		const [command, user1, numMax] = message.content.split(" ");
-		if (!user){
+		if (!user1){
 		message.reply('Please Mention a user');
 		return;
 		}
