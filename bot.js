@@ -15,7 +15,12 @@ client.on('message', message => {
 			message.channel.send(`Goodbye! :wave: Hope To See You Soon`).then(() => {
 			process.exit(1)
 			})}
-		else if (message.content.startsWith('.af')){
+
+				}
+			}
+		);
+client.on('message', async(message, user){
+if (message.content.startsWith('.af')){
 		const [command, user1, numMax] = message.content.split(" ");
 		if (!user1){
 		message.reply('Please Mention a user');
@@ -25,8 +30,8 @@ client.on('message', message => {
 		var num = 0
 		for(num= 0; num != numMax; num++){
 			user.send('test')
-		}
-		}
-				}
+			wait(100)
 			}
-		);
+		}
+	}
+);
