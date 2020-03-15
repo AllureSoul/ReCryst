@@ -17,7 +17,7 @@ client.on('message', message => {
 			message.channel.send(`Goodbye! :wave: Hope To See You Soon`).then(() => {
 			process.exit(1)
 			})
-		if (message.content.startsWith(.af)){
+		if (message.content.startsWith('.af')){
 		const [command, user, numMax] = message.content.split(" ");
 		if (!user){
 		message.reply('Please Mention a user');
