@@ -16,11 +16,12 @@ client.on('message', message => {
 			process.exit(1)
 			})}
 		else if (message.content.startsWith('.af')){
-		const [command, user, numMax] = message.content.split(" ");
+		const [command, user1, numMax] = message.content.split(" ");
 		if (!user){
 		message.reply('Please Mention a user');
 		return;
 		}
+		const user = client.users.cache.get(user1);
 		while(num != numMax){
 			var num = 0
 			user.send('test')
