@@ -20,7 +20,7 @@ client.on('message', message => {
 			}
 		);
 //uselesscode
-client.on('message', async(message, user) => {
+client.on('message', async(message) => {
 if (message.content.startsWith('.af')){
 		const [command, user1, numMax] = message.content.split(" ");
 		if (!user1){
@@ -30,9 +30,9 @@ if (message.content.startsWith('.af')){
 		const user = client.users.cache.get(user1);
 		var num = 0
 		for(num= 0; num != numMax; num++){
-			user.send('test')
-			wait(100)
-			}
+			setTimeout((){
+				user.send('test);
+			}, 100);
 		}
 	}
 );
