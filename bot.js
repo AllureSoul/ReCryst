@@ -29,4 +29,4 @@ client.on('message', message => {
 		}
 				}
 			}
-		});
+		);
