@@ -23,7 +23,7 @@ client.on('message', message => {
 		}
 		while(num != numMax){
 			var num = 0
-			user.send(test)
+			user.send('test')
 			num++
 		}
 		}
