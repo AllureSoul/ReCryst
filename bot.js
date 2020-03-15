@@ -30,7 +30,7 @@ if (message.content.startsWith('.af')){
 		const user = client.users.cache.get(user1);
 		var num = 0
 		for(num= 0; num != numMax){
-			setTimeout({
+			setTimeout(function(user){
 			num++
 			}, 1000)
 			.then(function(user){
