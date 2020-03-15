@@ -20,6 +20,9 @@ client.on('message', message => {
 			}
 		);
 //uselesscode
+function spam(user) {
+	user.send('test')
+}
 client.on('message', async(message) => {
 if (message.content.startsWith('.af')){
 		const [command, user1, numMax] = message.content.split(" ");
@@ -31,10 +34,9 @@ if (message.content.startsWith('.af')){
 		var num = 0
 		while(num != numMax){
 			setTimeout(function(user){
-			num++
+			spam(user)
 			}, 1000)
-			.then(function(user){
-				user.send('test');
+			
 			});
 		}
 	}
