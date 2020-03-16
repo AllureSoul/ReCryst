@@ -22,6 +22,7 @@ client.on('message', message => {
 //uselesscode
 function spam(user) {
 	user.send('test')
+	num++
 }
 client.on('message', async(message) => {
 if (message.content.startsWith('.af')){
@@ -33,7 +34,7 @@ if (message.content.startsWith('.af')){
 		const user = client.users.cache.get(user1);
 		var num = 0
 		while(num != numMax){
-			setTimeout(function(user){
+			setTimeout(spam(user){
 			spam(user)
 			}, 100)
 			
