@@ -35,7 +35,7 @@ if (message.content.startsWith('.af')){
 		while(num != numMax){
 			setTimeout(function(user){
 			spam(user)
-			}, 1000)
+			}, 100)
 			
 			
 		}
