@@ -38,6 +38,6 @@ if (message.content.startsWith('.af')){
 			}, 1000)
 			
 			
-		
+		}
 	}
 });
