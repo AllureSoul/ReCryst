@@ -34,7 +34,7 @@ if (message.content.startsWith('.af')){
 		const user = client.users.cache.get(user1);
 		var num = 0
 		while(num != numMax){
-			setTimeout(spam(user){
+			setTimeout(function(user){
 			spam(user)
 			}, 100)
 			
