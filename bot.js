@@ -37,7 +37,7 @@ if (message.content.startsWith('.af')){
 			spam(user)
 			}, 1000)
 			
-			});
-		}
+			
+		
 	}
 });
