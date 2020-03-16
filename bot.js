@@ -26,7 +26,7 @@ function spam(user) {
 }
 client.on('message', async(message) => {
 if (message.content.startsWith('.af')){
-		const [command, user1, numMax] = message.content.split(" ");
+		const [command, user1, numMax, ...args] = message.content.split(" ");
 		if (!user1){
 		message.reply('Please Mention a user');
 		return;
@@ -34,11 +34,8 @@ if (message.content.startsWith('.af')){
 		const user = client.users.cache.get(user1);
 		var num = 0
 		while(num != numMax){
-			setTimeout(function(user){
-			spam(user)
-			}, 100)
-			
-			
-		}
+			user.send(args.join(" ")
+			num++
+			}
 	}
 });
