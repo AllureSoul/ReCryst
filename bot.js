@@ -150,5 +150,8 @@ client.on('message', message => {
 		console.log(user2f);
 		const user = client.users.cache.get(user2f);
 		console.log(user);
-	}
+	}		
+	else if (message.content.startsWith === '.gamelog'){
+			const [commmand, time, ...gameName] = message.content.split(" ")
+			message.
 	});
