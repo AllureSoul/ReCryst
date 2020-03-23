@@ -98,44 +98,44 @@ switch(command){
 //Unrestricted
 
 client.on('message', message => {
-  if (message.content === '.playing'){
+		  if (message.content === '.playing'){
 			message.delete()
 			message.channel.send("<@&665427708464857101> We're Playing!")
-			client.guilds.cache.get('609376315648245810').channels.cache.get('685126107141242960').send(`${message.author} Notified The Group That They Are Playing`)
-  }
-  if (message.content.startsWith('.isplaying')){
-		const users = message.mentions.users.first(7);
-		if (users.length < 1) {
-			message.reply (`You Didn't Mention Anyone, Dummy!`)
-		}
-		else if (users.length === 1) {
-			message.delete()
-			message.channel.send (`Hey! <@&665427708464857101> ${users} is playing!`)
-		}
-		else if (users.length >= 2){
-			message.delete()
-			message.channel.send (`Hey! <@&665427708464857101> ${users} are playing!`)
-		}
-		}
-	else if (message.content.startsWith('.poll')){
-		message.delete()
-		const [command, ...args] = message.content.split (" ");
-		client.guilds.cache.get('609376315648245810').channels.cache.get('683524213239447614').send(`Poll To ${args.join(" ")} (Started By ${message.author})`)
-		.then (function(message){
-		message.react('✅')
-		message.react('❌')
-		})}
-	else if (message.content === '.' || message.content.startsWith('<@!684702198327934983>') || message.content.startsWith('<@&685100785532665868>')){
-		message.channel.send(`Hello ${message.author} :wave:, Can i Help You In Any Way?`)
-	}
-	else if (message.content.startsWith('.notify')){
-		message.delete()
-		const user1 = message.mentions.users.first(100)
-		if (user1.length > 0){
-		message.channel.send(`Hey, ${user1}! ${message.author} wants to play`)
+	 		client.guilds.cache.get('609376315648245810').channels.cache.get('685126107141242960').send(`${message.author} Notified The Group That They Are Playing`)
+		  }
+		else  if (message.content.startsWith('.isplaying')){
+			const users = message.mentions.users.first(7);
+			if (users.length < 1) {
+				message.reply (`You Didn't Mention Anyone, Dummy!`)
 			}
-		if (user1.length === 0){
-			message.channel.send(`Hey, ${message.author} tag someone!`)
+			else if (users.length === 1) {
+				message.delete()
+				message.channel.send (`Hey! <@&665427708464857101> ${users} is playing!`)
 			}
+			else if (users.length >= 2){
+				message.delete()
+				message.channel.send (`Hey! <@&665427708464857101> ${users} are playing!`)
+			}
+			}
+		else if (message.content.startsWith('.poll')){
+			message.delete()
+			const [command, ...args] = message.content.split (" ");
+			client.guilds.cache.get('609376315648245810').channels.cache.get('683524213239447614').send(`Poll To ${args.join(" ")} (Started By ${message.author})`)
+			.then (function(message){
+			message.react('✅')
+			message.react('❌')
+			})}
+		else if (message.content === '.' || message.content.startsWith('<@!684702198327934983>') || message.content.startsWith('<@&685100785532665868>')){
+			message.channel.send(`Hello ${message.author} :wave:, Can i Help You In Any Way?`)
 		}
-	});
+		else if (message.content.startsWith('.notify')){
+			message.delete()
+			const user1 = message.mentions.users.first(100)
+			if (user1.length > 0){
+			message.channel.send(`Hey, ${user1}! ${message.author} wants to play`)
+				}
+			if (user1.length === 0){
+				message.channel.send(`Hey, ${message.author} tag someone!`)
+				}
+			}
+		});
