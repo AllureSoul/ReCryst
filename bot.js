@@ -14,7 +14,7 @@ client.on('ready', () => {
 	client.guilds.cache.get('609376315648245810').channels.cache.get('685126107141242960').send(`I Am Online!, Running ${info.version} on ${info.phase}`)
 	client.user.setActivity("Ceacillia's Play", {type: 'WATCHING' });
 });
-//Ceacillia Only
+//Owner Only
 client.on('message', message => {
 	if (message.author.id === '582195861874802709'){
 		if (message.content.startsWith(prefix + 'off')){
@@ -151,7 +151,8 @@ client.on('message', message => {
 		const user = client.users.cache.get(user2f);
 		console.log(user);
 	}		
-	else if (message.content.startsWith === '.gamelog'){
+	else if (message.content.startsWith(prefix + 'gamelog'){
 			const [commmand, time, ...gameName] = message.content.split(" ")
-			message.
+	client.guilds.cache.get('609376315648245810').channels.cache.get('685126107141242960').send(`${message.author} Would Like To Play A Game Of ${gameName} at {time}`);
 	});
+})
