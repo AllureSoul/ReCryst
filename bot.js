@@ -154,5 +154,5 @@ client.on('message', message => {
 	else if (message.content.startsWith(prefix + 'gamelog')){
 			const [commmand, time, ...gameName] = message.content.split(" ")
 	client.guilds.cache.get('609376315648245810').channels.cache.get('685126107141242960').send(`${message.author} Would Like To Play A Game Of ${gameName} at {time}`);
-	})
+	}
 });
