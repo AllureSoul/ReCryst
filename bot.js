@@ -104,22 +104,41 @@ client.on('message', message => {
 //Unrestricted
 
 client.on('message', message => {
-  if (message.content.startsWith(prefix + 'playing')){
+
+		  if (message.content.startsWith(prefix + 'playing'))
 			message.delete()
 			message.channel.send("<@&665427708464857101> We're Playing!")
-			client.guilds.cache.get('609376315648245810').channels.cache.get('685126107141242960').send(`${message.author} Notified The Group That They Are Playing`)
-  }
-  if (message.content.startsWith(prefix + 'isPlaying')){
-		const users = message.mentions.users.first(7);
-		if (users.length < 1) {
-			message.reply (`You Didn't Mention Anyone, Dummy!`)
-		}
-		else if (users.length === 1) {
+	 		client.guilds.cache.get('609376315648245810').channels.cache.get('685126107141242960').send(`${message.author} Notified The Group That They Are Playing`)
+		  }
+		else  if (message.content.startsWith('.isplaying')){
+			const users = message.mentions.users.first(7);
+			if (users.length < 1) {
+				message.reply (`You Didn't Mention Anyone, Dummy!`)
+			}
+			else if (users.length === 1) {
+				message.delete()
+				message.channel.send (`Hey! <@&665427708464857101> ${users} is playing!`)
+			}
+			else if (users.length >= 2){
+				message.delete()
+				message.channel.send (`Hey! <@&665427708464857101> ${users} are playing!`)
+			}
+			}
+		else if (message.content.startsWith('.poll')){
+
 			message.delete()
-			message.channel.send (`Hey! <@&665427708464857101> ${users} is playing!`)
+			const [command, ...args] = message.content.split (" ");
+			client.guilds.cache.get('609376315648245810').channels.cache.get('683524213239447614').send(`Poll To ${args.join(" ")} (Started By ${message.author})`)
+			.then (function(message){
+			message.react('✅')
+			message.react('❌')
+			})}
+		else if (message.content === '.' || message.content.startsWith('<@!684702198327934983>') || message.content.startsWith('<@&685100785532665868>')){
+			message.channel.send(`Hello ${message.author} :wave:, Can i Help You In Any Way?`)
 		}
-		else if (users.length >= 2){
+		else if (message.content.startsWith('.notify')){
 			message.delete()
+
 			message.channel.send (`Hey! <@&665427708464857101> ${users} are playing!`)
 		}
 		}
@@ -156,3 +175,4 @@ client.on('message', message => {
 	client.guilds.cache.get('609376315648245810').channels.cache.get('685126107141242960').send(`${message.author} Would Like To Play A Game Of ${gameName} at {time}`);
 	}
 });
+
