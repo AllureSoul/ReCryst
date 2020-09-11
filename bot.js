@@ -109,7 +109,7 @@ client.on('message', message => {
 			message.delete()
 			message.channel.send("<@&665427708464857101> We're Playing!")
 	 		client.guilds.cache.get('609376315648245810').channels.cache.get('685126107141242960').send(`${message.author} Notified The Group That They Are Playing`)
-		  }
+		  	}
 		else  if (message.content.startsWith('.isplaying')){
 			const users = message.mentions.users.first(7);
 			if (users.length < 1) {
