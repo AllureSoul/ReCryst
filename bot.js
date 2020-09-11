@@ -141,7 +141,7 @@ client.on('message', message => {
 
 			message.channel.send (`Hey! <@&665427708464857101> ${users} are playing!`)
 		}
-		}
+		
 	else if (message.content.startsWith(prefix + 'poll')){
 		message.delete()
 		const [command, ...args] = message.content.split (" ");
