@@ -42,6 +42,9 @@ client.on('message', message => {
 });
 //Admin Only
 client.on('message', message => {
+	if (message.content.startsWith(prefix)){
+		guildID = message.guild.id
+		
 	if (message.author.id === '582195861874802709' || message.author.id === '574547932758540288' || message.author.id === '684702198327934983') {
 	if (message.content.startsWith(prefix + 'edit')){
 		message.delete()
@@ -61,8 +64,7 @@ client.on('message', message => {
 				messages.first().delete;
 				})} else
 	if (message.content.startsWith(prefix + 'post')){
-		ms1 = message.guild.id
-		console.log(ms1);
+
 		message.delete()
 		const [command , channelId, ...args] = message.content.split(" ");
 		if (!channelId) return;
@@ -71,7 +73,7 @@ client.on('message', message => {
 			console.log(`${message.author.username} has posted ${args.join(" ")} on the channel with the ID ${channelId}`);
 			switch(command){
 				case command:
-				client.guilds.cache.get('609376315648245810').channels.cache.get(channel).send(args.join(" "));
+				client.guilds.cache.get(guildID).channels.cache.get(channel).send(args.join(" "));
 				client.guilds.cache.get('609376315648245810').channels.cache.get('685126107141242960').send(`${message.author} Used A Post Command`)
 			break;
    	}}else
@@ -101,16 +103,18 @@ client.on('message', message => {
 		console.log(`${message.author.username} Had Cleared The Logs for the server`)	
 	}
 	}
-	});
+}});
 
 //Unrestricted
 
 client.on('message', message => {
-
+	if (message.content.startsWith(prefix)){
+		guildID = message.guild.id
+		
 		  if (message.content.startsWith(prefix + 'playing')){
 			message.delete()
 			message.channel.send("<@&665427708464857101> We're Playing!")
-	 		client.guilds.cache.get('609376315648245810').channels.cache.get('685126107141242960').send(`${message.author} Notified The Group That They Are Playing`)
+	 		client.guilds.cache.get(guildID).channels.cache.get(message.channel.id).send(`${message.author} Notified The Group That They Are Playing`)
 		  	}
 		else  if (message.content.startsWith('.isplaying')){
 			const users = message.mentions.users.first(7);
@@ -175,6 +179,7 @@ client.on('message', message => {
 	else if (message.content.startsWith(prefix + 'gamelog')){
 			const [commmand, time, ...gameName] = message.content.split(" ")
 	client.guilds.cache.get('609376315648245810').channels.cache.get('685126107141242960').send(`${message.author} Would Like To Play A Game Of ${gameName} at {time}`);
+	}
 	}
 });
 
