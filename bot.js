@@ -61,6 +61,8 @@ client.on('message', message => {
 				messages.first().delete;
 				})} else
 	if (message.content.startsWith(prefix + 'post')){
+		ms1 = message.guild.id
+		console.log(ms1);
 		message.delete()
 		const [command , channelId, ...args] = message.content.split(" ");
 		if (!channelId) return;
