@@ -105,7 +105,7 @@ client.on('message', message => {
 
 client.on('message', message => {
 
-		  if (message.content.startsWith(prefix + 'playing'))
+		  if (message.content.startsWith(prefix + 'playing')){
 			message.delete()
 			message.channel.send("<@&665427708464857101> We're Playing!")
 	 		client.guilds.cache.get('609376315648245810').channels.cache.get('685126107141242960').send(`${message.author} Notified The Group That They Are Playing`)
