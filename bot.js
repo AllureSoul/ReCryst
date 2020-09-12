@@ -21,10 +21,12 @@ client.on('reconnecting',() => {
 	
 //Owner Only
 client.on('message', message => {
+	if (message.content.startsWith(prefix)){
+	guildID = message.guild.id
 	if (message.author.id === '582195861874802709'){
 		if (message.content.startsWith(prefix + 'off')){
 			message.delete()
-			client.guilds.cache.get('609376315648245810').channels.cache.get('685126107141242960').send(`Goodbye! :wave:`)
+			client.guilds.cache.get(info.mainGuildID).channels.cache.get(info.logChannelID).send(`Goodbye! :wave:`)
 			message.channel.send(`Goodbye! :wave: Hope To See You Soon`).then(() => {
 			console.log(`Process Ended.`)
 			process.exit('Bot Disabled')
@@ -44,11 +46,7 @@ client.on('message', message => {
 			console.log(`${message.author.username}, Activity Changed to ${activity.join(" ")}`)
 		}
 	}
-});
-//Admin Only
-client.on('message', message => {
-	if (message.content.startsWith(prefix)){
-		guildID = message.guild.id
+
 		
 	if (message.author.id === '582195861874802709' || message.author.id === '574547932758540288' || message.author.id === '684702198327934983') {
 	if (message.content.startsWith(prefix + 'edit')){
@@ -79,16 +77,14 @@ client.on('message', message => {
 			switch(command){
 				case command:
 				client.guilds.cache.get(guildID).channels.cache.get(channel).send(args.join(" "));
-				client.guilds.cache.get('609376315648245810').channels.cache.get('685126107141242960').send(`${message.author} Used A Post Command`)
 			break;
    	}}else
 	if (message.content.startsWith(prefix + 'clear')){
 		message.channel.bulkDelete('100')
-		client.guilds.cache.get('609376315648245810').channels.cache.get('685126107141242960').send(`${message.author} Used A Clear Command`)
 		message.channel.send(`The Previous 100 Messages Have Been Deleted by ${message.author}`);
 		console.log(`${message.author.username} has deleted 100 messages from ${message.channel.name}`)
 	}else
-	if (message.content.startsWith(prefix + 'intro')){
+	if (message.content.startsWith('supercalifragalisticexpialidotious')){
 		message.delete()
 		const embed = new Discord.MessageEmbed()
 			.setTitle('Introduction')
@@ -100,21 +96,12 @@ client.on('message', message => {
 				{name :'Commands',value: "1. Poll. I can start a poll. Format: \n Poll To (Text), (Started By @User) \n 2. playing and isplaying. Playing tells others that you are playing, while if you want to notify others that someone else is playing, do isplaying and tag the people who are playing. \n thats all for now, i hope to see you soon. :wave:"},
 			)
 			message.channel.send(embed)
-		client.guilds.cache.get('609376315648245810').channels.cache.get('685126107141242960').send(`${message.author} Used An Introduction Command`)
-} else if (message.content.startsWith(prefix + 'clearlogs')){
-		client.guilds.cache.get('609376315648245810').channels.cache.get('685126107141242960').bulkDelete('100')
+}		 else if (message.content.startsWith(prefix + 'clearlogs')){
+		client.guilds.cache.get(info.mainGuildID).channels.cache.get(info.logChannelID).bulkDelete('100')
 		message.reply('Logs Cleared!');
-		client.guilds.cache.get('609376315648245810').channels.cache.get('685126107141242960').send(`${message.author} Cleared Logs`)
 		console.log(`${message.author.username} Had Cleared The Logs for the server`)	
+		}
 	}
-	}
-}});
-
-//Unrestricted
-
-client.on('message', message => {
-	if (message.content.startsWith(prefix)){
-		guildID = message.guild.id
 		
 		  if (message.content.startsWith(prefix + 'playing')){
 			message.delete()
@@ -128,43 +115,26 @@ client.on('message', message => {
 			}
 			else if (users.length === 1) {
 				message.delete()
-				message.channel.send (`Hey! <@&665427708464857101> ${users} is playing!`)
+				message.channel.send (`Hey!` + "<@everyone>" + `${users} is playing!`)
 			}
 			else if (users.length >= 2){
 				message.delete()
-				message.channel.send (`Hey! <@&665427708464857101> ${users} are playing!`)
+				message.channel.send (`Hey!` + "<@everyone>" + `${users} are playing!`)
 			}
 			}
-		else if (message.content.startsWith('.poll')){
 
-			message.delete()
-			const [command, ...args] = message.content.split (" ");
-			client.guilds.cache.get('609376315648245810').channels.cache.get('683524213239447614').send(`Poll To ${args.join(" ")} (Started By ${message.author})`)
-			.then (function(message){
-			message.react('✅')
-			message.react('❌')
-			})}
 		else if (message.content === '.' || message.content.startsWith('<@!684702198327934983>') || message.content.startsWith('<@&685100785532665868>')){
 			message.channel.send(`Hello ${message.author} :wave:, Can i Help You In Any Way?`)
 		}
-		else if (message.content.startsWith('.notify')){
-			message.delete()
-
-			message.channel.send (`Hey! <@&665427708464857101> ${users} are playing!`)
-		}
-		
-	else if (message.content.startsWith(prefix + 'poll')){
-		message.delete()
+		else if (message.content.startsWith(prefix + 'poll')){
 		const [command, ...args] = message.content.split (" ");
-		client.guilds.cache.get('609376315648245810').channels.cache.get('683524213239447614').send(`Poll To ${args.join(" ")} (Started By ${message.author})`)
+		client.guilds.cache.get(guildID).channels.cache.get(message.channel.id).send(`Poll To ${args.join(" ")} (Started By ${message.author})`)
 		.then (function(message){
 		message.react('✅')
 		message.react('❌')
 		})}
-	else if (message.content === '.' || message.content.startsWith('<@!684702198327934983>') || message.content.startsWith('<@&685100785532665868>')){
-		message.channel.send(`Hello ${message.author} :wave:, Can i Help You In Any Way?`)
-	}
-	else if (message.content.startsWith(prefix + 'notify')){
+	
+		else if (message.content.startsWith(prefix + 'notify')){
 		message.delete()
 		const user1 = message.mentions.users.first(100)
 		if (user1.length > 0){
@@ -176,7 +146,7 @@ client.on('message', message => {
 		}
 	else if (message.content.startsWith(prefix + 'gamelog')){
 			const [commmand, time, ...gameName] = message.content.split(" ")
-	client.guilds.cache.get('609376315648245810').channels.cache.get('685126107141242960').send(`${message.author} Would Like To Play A Game Of ${gameName} at ${time}`);
+	client.guilds.cache.get(guildID).channels.cache.get(message.channel.id).send(`${message.author} Would Like To Play A Game Of ${gameName} at ${time}`);
 	}
 	}
 });
