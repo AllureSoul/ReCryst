@@ -5,7 +5,7 @@ const client = new Discord.Client();
 //.JSON file usage
 var info = require('./Files/info.json');
 const prefix = (info.prefix);
-client.login('Njg2MDczNDAwMjc1MjM4OTYy.XwvlbQ.14K9orgyD1Yr9ZwvIvm55kvLr3U');
+client.login(process.env.BOT_TOKEN);
 		
 //Bot Starts Here
 
