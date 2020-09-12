@@ -5,7 +5,7 @@ const client = new Discord.Client();
 //.JSON file usage
 var info = require('./Files/info.json');
 const prefix = (info.prefix);
-client.login(process.env.BOT_TOKEN);
+client.login('Njg2MDczNDAwMjc1MjM4OTYy.XwvlbQ.14K9orgyD1Yr9ZwvIvm55kvLr3U');
 		
 //Bot Starts Here
 
@@ -27,7 +27,7 @@ client.on('message', message => {
 			client.guilds.cache.get('609376315648245810').channels.cache.get('685126107141242960').send(`Goodbye! :wave:`)
 			message.channel.send(`Goodbye! :wave: Hope To See You Soon`).then(() => {
 			console.log(`Process Ended.`)
-			process.exit(1)
+			process.exit('Bot Disabled')
 			})
 		}
 		else if(message.content.startsWith(prefix + 'setActivity')){
@@ -174,16 +174,9 @@ client.on('message', message => {
 			message.channel.send(`Hey, ${message.author} tag someone!`)
 			}
 		}
-	else if (message.content.startsWith(prefix + "forceNotify")){
-		const user1f = message.mentions.users.first(1);
-		const user2f = user1f.slice(2,-1);
-		console.log(user2f);
-		const user = client.users.cache.get(user2f);
-		console.log(user);
-	}		
 	else if (message.content.startsWith(prefix + 'gamelog')){
 			const [commmand, time, ...gameName] = message.content.split(" ")
-	client.guilds.cache.get('609376315648245810').channels.cache.get('685126107141242960').send(`${message.author} Would Like To Play A Game Of ${gameName} at {time}`);
+	client.guilds.cache.get('609376315648245810').channels.cache.get('685126107141242960').send(`${message.author} Would Like To Play A Game Of ${gameName} at ${time}`);
 	}
 	}
 });
