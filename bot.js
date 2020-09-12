@@ -10,10 +10,15 @@ client.login(process.env.BOT_TOKEN);
 //Bot Starts Here
 
 client.on('ready', () => {
-	console.log(`ReCryst ready!, currently running ${info.version} on ${info.phase}`);
-	client.guilds.cache.get('609376315648245810').channels.cache.get('685126107141242960').send(`I Am Online!, Running ${info.version} on ${info.phase}`)
-	client.user.setActivity("Ceacillia's Play", {type: 'WATCHING' });
-});
+	console.log(`Slime ready!, currently running ${info.version} on ${info.phase}`);
+	client.guilds.cache.get(info.mainGuildID).channels.cache.get(info.logChannelID).send(`I Am Online!, Running ${info.version} on ${info.phase}`)
+	client.user.setActivity("Your Journey", {type: 'PLAYING'});
+	});
+client.on('reconnecting',() => {
+	console.log(`Slime reconnecting!`);
+	client.user.setPressence({ activity: { name: 'with the lag'}, status:'idle'});
+	});
+	
 //Owner Only
 client.on('message', message => {
 	if (message.author.id === '582195861874802709'){
